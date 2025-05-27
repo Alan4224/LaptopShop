@@ -1,0 +1,31 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "tesr",
+      "request": "launch",
+      "mainClass": "vn.nhom8.laptopshop.controller.Admin.tesr",
+      "projectName": "laptopshop"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-LaptopshopApplication<laptopshop>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "vn.nhom8.laptopshop.LaptopshopApplication",
+      "projectName": "laptopshop",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-LaptopshopApplication<laptopshop>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "vn.hoidanit.laptopshop.LaptopshopApplication",
+      "projectName": "laptopshop",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}
