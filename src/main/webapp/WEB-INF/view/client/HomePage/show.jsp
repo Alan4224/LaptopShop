@@ -1,6 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
         <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
             <html lang="en">
 
             <head>
@@ -34,10 +35,38 @@
             </head>
 
             <body>
+                <style>
+                    .product-card {
+                        transition: all 0.3s ease-in-out;
+                        background-color: #ffffff;
+                        border: 1px solid #e0e0e0;
+                    }
+
+                    .product-card:hover {
+                        transform: translateY(-6px);
+                        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+                        border-color: rgba(0, 0, 0, 0.1);
+                    }
+
+
+
+                    .product-card img {
+                        border-radius: 12px;
+                        object-fit: contain;
+                        max-height: 200px;
+                    }
+
+                    .card-title {
+                        font-size: 1rem;
+                        min-height: 3rem;
+                    }
+                </style>
 
                 <!-- Spinner Start -->
                 <div id="spinner"
-                    class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50  d-flex align-items-center justify-content-center">
+                    class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50  d-flex align-items-center justify-content-center"
+                    style="margin-top:100px">
+
                     <div class="spinner-grow text-primary" role="status"></div>
                 </div>
                 <!-- Spinner End -->
@@ -46,7 +75,7 @@
 
                 <jsp:include page="../layout/banner.jsp" />
                 <!-- Fruits Shop Start-->
-                <div class="container-fluid fruite py-5">
+                <div class="container-fluid fruite py-5" style="background-color:#fcfcfc   ;">
                     <div class="container py-5">
                         <div class="tab-class text-center">
                             <div class="row g-4">
@@ -56,7 +85,7 @@
                                 <div class="col-lg-8 text-end">
                                     <ul class="nav nav-pills d-inline-flex text-center mb-5">
                                         <li class="nav-item">
-                                            <a class="d-flex m-2 py-2 bg-light rounded-pill active" href=/products">
+                                            <a class="d-flex m-2 py-2 bg-light rounded-pill active" href=/products>
                                                 <span class="text-dark" style="width: 130px;">All Products</span>
                                             </a>
                                         </li>
@@ -69,48 +98,54 @@
                                         <div class="col-lg-12">
                                             <div class="row g-4">
                                                 <c:forEach var="product" items="${products}">
-                                                    <div class="col-md-6 col-lg-4 col-xl-3">
-                                                        <div class="rounded position-relative fruite-item">
-                                                            <div class="fruite-img">
-                                                                <img src="/images/product/${product.image}"
-                                                                    class="img-fluid w-100 rounded-top" alt="">
-                                                            </div>
-                                                            <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                                                style="top: 10px; left: 10px;">Laptop</div>
-                                                            <div
-                                                                class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                                <h4 style="font-size: 15px;">
-                                                                    <a href="/product/${product.id}">
+                                                    <div class="col-md-6 col-lg-4 col-xl-3 mb-4">
+                                                        <div
+                                                            class="card product-card border rounded-4 shadow-sm h-100 transition">
+                                                            <a href="/product/${product.id}"
+                                                                style="text-decoration:none; color:inherit;">
+                                                                <div class="position-relative">
+                                                                    <img src="/images/product/${product.image}"
+                                                                        class="card-img-top p-3" alt="${product.name}">
+                                                                    <span
+                                                                        class="badge bg-primary position-absolute top-0 start-0 m-3 px-3 py-2 fw-semibold rounded-pill shadow-sm">Laptop</span>
+                                                                </div>
+                                                                <div class="card-body text-center">
+                                                                    <h5 class="card-title text-truncate fw-semibold text-dark mb-2"
+                                                                        title="${product.name}">
                                                                         ${product.name}
-                                                                    </a>
-
-                                                                </h4>
-                                                                <div style="font-size: 13px; background-color: aqua;">
-                                                                    RAM ${product.ram}</div>
-                                                                <div style="font-size: 13px; background-color: aqua;">
-                                                                    SSD ${product.ssd}</div>
-                                                                <div
-                                                                    class="d-flex  flex-lg-wrap justify-content-center flex-cloumn">
-                                                                    <p style="font-size: 15px; text-align: center; width: 100%;"
-                                                                        class="text-dark  fw-bold mb-3">
+                                                                    </h5>
+                                                                    <div
+                                                                        class="d-flex justify-content-center gap-3 text-muted small mb-2">
+                                                                        <span><i
+                                                                                class="fas fa-memory me-1"></i>${product.ram}
+                                                                        </span>
+                                                                        <span><i
+                                                                                class="fas fa-hdd me-1"></i>${product.ssd}
+                                                                        </span>
+                                                                    </div>
+                                                                    <p class="text-success fw-bold fs-5 mb-3">
                                                                         <fmt:formatNumber type="number"
                                                                             value="${product.price}" /> đ
                                                                     </p>
-                                                                    <form method="post"
-                                                                        action="/add-product-to-cart/${product.id}">
-                                                                        <input type="hidden"
-                                                                            name="${_csrf.parameterName}"
-                                                                            value="${_csrf.token}" />
-                                                                        <button
-                                                                            class="mx-auto btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                                                class="fa fa-shopping-bag me-2 text-primary"></i>
-                                                                            Add to cart</button>
-                                                                    </form>
                                                                 </div>
-                                                            </div>
+                                                            </a>
+                                                            <form method="post"
+                                                                action="/add-product-to-cart/${product.id}">
+                                                                <input type="hidden" name="${_csrf.parameterName}"
+                                                                    value="${_csrf.token}" />
+                                                                <button type="submit"
+                                                                    class="btn btn-outline-primary rounded-pill px-3 fw-medium"
+                                                                    style="font-size: 0.9rem;">
+                                                                    <i class="fa fa-shopping-cart me-2"></i> Thêm vào
+                                                                    giỏ
+                                                                </button>
+                                                            </form>
                                                         </div>
                                                     </div>
                                                 </c:forEach>
+
+
+
                                             </div>
                                         </div>
                                     </div>

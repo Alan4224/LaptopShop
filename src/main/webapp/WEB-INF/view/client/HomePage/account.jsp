@@ -58,50 +58,52 @@
                 </nav>
               </div>
               <div class="table-responsive">
-                <form:form method="post" action="/account" modelAttribute="newUser" enctype="multipart/form-data">
+                <form:form method="post" action="/account" modelAttribute="newUser" enctype="multipart/form-data"
+                  class="p-3 border rounded" style="max-width: 600px; margin: auto;">
                   <div class="mb-3" style="display:none;">
-                    <label class="form-label">Id:</label>
-                    <form:input type="text" class="form-control" path="id" />
+                    <label class="form-label" for="idInput">Id:</label>
+                    <form:input type="text" class="form-control" path="id" id="idInput" />
                   </div>
                   <div class="mb-3">
-                    <label class="form-label">Email:</label>
-                    <form:input type="email" class="form-control" path="email" disabled="true" />
+                    <label class="form-label" for="emailInput">Email:</label>
+                    <form:input type="email" class="form-control" path="email" id="emailInput" disabled="true" />
                   </div>
                   <div class="mb-3">
-                    <label class="form-label">Phone number:</label>
-                    <form:input type="text" class="form-control" path="phone" />
+                    <label class="form-label" for="phoneInput">Phone number:</label>
+                    <form:input type="text" class="form-control" path="phone" id="phoneInput" />
                   </div>
                   <div class="mb-3">
-                    <label class="form-label">Full name:</label>
-                    <form:input type="text" class="form-control" path="fullName" />
+                    <label class="form-label" for="fullNameInput">Full name:</label>
+                    <form:input type="text" class="form-control" path="fullName" id="fullNameInput" />
                   </div>
                   <div class="mb-3">
-                    <label class="form-label">Address:</label>
-                    <form:input type="text" class="form-control" path="address" />
+                    <label class="form-label" for="addressInput">Address:</label>
+                    <form:input type="text" class="form-control" path="address" id="addressInput" />
                   </div>
-                  <div class="col-md-6">
-                    <label class="form-label">Avatar:</label>
+                  <div class="mb-3">
+                    <label class="form-label" for="formFile">Avatar:</label>
                     <input class="form-control" type="file" id="formFile" accept=".png, .jpg, .jpeg" name="ImageFile"
                       onchange="loadFile(event)" />
-                    <img id="output" width="300px" src="/images/avatar/${newUser.avatar}" />
-                    <script>
-                      var loadFile = function (event) {
-                        var output = document.getElementById('output');
-                        output.src = URL.createObjectURL(event.target.files[0]);
-                        output.style.display = 'block';
-                        output.onload = function () {
-                          URL.revokeObjectURL(output.src) // free memory
-                        }
-                      };
-                    </script>
-
+                    <img id="output" width="300" class="mt-2 rounded" src="/images/avatar/${newUser.avatar}"
+                      alt="Avatar Preview" style="display:block;" />
                   </div>
-                  <div class="mb-3">
-                    <button type="submit" class="btn btn-warning">Submit</button>
-                    <a href="/" class="btn btn-warning">Cancel</a>
+                  <div class="pd-3 mb-3 d-flex justify-content-center gap-3">
+                    <button type="submit" class="btn btn-warning px-4">Submit</button>
+                    <a href="/" class="btn btn-secondary px-4">Cancel</a>
                   </div>
                 </form:form>
               </div>
+
+              <script>
+                var loadFile = function (event) {
+                  var output = document.getElementById('output');
+                  output.src = URL.createObjectURL(event.target.files[0]);
+                  output.style.display = 'block';
+                  output.onload = function () {
+                    URL.revokeObjectURL(output.src); // free memory
+                  };
+                };
+              </script>
             </div>
           </div>
           <!-- Cart Page End -->

@@ -1,44 +1,63 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
         <!-- Footer Start -->
-        <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5">
+        <div class="container-fluid bg-dark text-white-50 pt-5 mt-5 footer">
             <div class="container py-5">
-                <div class="pb-4 mb-4" style="border-bottom: 1px solid rgba(226, 175, 24, 0.5) ;">
-                    <div class="row g-4">
-                        <div class="col-lg-3">
-                            <a href="https://nhom8.vn" target="_blank">
-                                <h1 class="text-primary mb-0">Laptopshop</h1>
-                                <p class="text-secondary mb-0">@nhom8</p>
-                            </a>
+                <!-- Logo và mô tả -->
+                <div class="row g-4 pb-4 mb-4 border-bottom border-warning">
+                    <div class="col-lg-4">
+                        <a href="https://nhom8.vn" target="_blank" class="text-decoration-none">
+                            <h2 class="text-primary mb-1">LaptopShop</h2>
+                            <p class="text-white-50 mb-0">@nhom8 - Uy tín tạo niềm tin</p>
+                        </a>
+                    </div>
+                    <div class="col-lg-8 d-flex align-items-center justify-content-lg-end">
+                        <div class="d-flex gap-3">
+                            <a href="#" class="btn btn-outline-light btn-sm rounded-circle"><i
+                                    class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="btn btn-outline-light btn-sm rounded-circle"><i
+                                    class="fab fa-instagram"></i></a>
+                            <a href="#" class="btn btn-outline-light btn-sm rounded-circle"><i
+                                    class="fab fa-youtube"></i></a>
                         </div>
                     </div>
                 </div>
+
+                <!-- Nội dung chính -->
                 <div class="row g-5">
-                    <div class="col-lg-3 col-md-6">
-                        <div class="footer-item">
-                            <h4 class="text-light mb-3">Chất lượng là ưu tiên hàng đầu</h4>
+                    <!-- Cột 1 -->
+                    <div class="col-md-6 col-lg-3">
+                        <h5 class="text-light mb-4">Về Chúng Tôi</h5>
+                        <p><i class="fas fa-check text-primary me-2"></i>100% Chính Hãng</p>
+                        <p><i class="fas fa-check text-primary me-2"></i>Bảo hành toàn quốc</p>
+                        <p><i class="fas fa-check text-primary me-2"></i>Đổi trả dễ dàng</p>
+                    </div>
 
-                        </div>
+                    <!-- Cột 2 -->
+                    <div class="col-md-6 col-lg-3">
+                        <h5 class="text-light mb-4">Thông Tin</h5>
+                        <a class="btn-link text-white-50 mb-2 d-block" href="#">Giới thiệu</a>
+                        <a class="btn-link text-white-50 mb-2 d-block" href="#">Chính sách bảo mật</a>
+                        <a class="btn-link text-white-50 mb-2 d-block" href="#">Điều khoản</a>
+                        <a class="btn-link text-white-50 d-block" href="#">Liên hệ</a>
                     </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="d-flex flex-column text-start footer-item">
-                            <h4 class="text-light mb-3">Shop Info</h4>
-                            <a class="btn-link" href="#">About Us</a>
 
-                        </div>
+                    <!-- Cột 3 -->
+                    <div class="col-md-6 col-lg-3">
+                        <h5 class="text-light mb-4">Tài Khoản</h5>
+                        <a class="btn-link text-white-50 mb-2 d-block" href="#">Đăng nhập</a>
+                        <a class="btn-link text-white-50 mb-2 d-block" href="#">Đăng ký</a>
+                        <a class="btn-link text-white-50 d-block" href="#">Giỏ hàng</a>
                     </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="d-flex flex-column text-start footer-item">
-                            <h4 class="text-light mb-3">Account</h4>
-                            <a class="btn-link" href="#">My Account</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="footer-item">
-                            <h4 class="text-light mb-3">Contact</h4>
-                            <p>Author:Hỏi Dân IT</p>
-                            <p>Website: <a href="https://nhom8.vn" target="_blank"> nhom8.vn</a></p>
-                        </div>
+
+                    <!-- Cột 4 -->
+                    <div class="col-md-6 col-lg-3">
+                        <h5 class="text-light mb-4">Liên hệ</h5>
+                        <p><i class="fas fa-map-marker-alt text-primary me-2"></i>TP.HCM, Việt Nam</p>
+                        <p><i class="fas fa-envelope text-primary me-2"></i>contact@nhom8.vn</p>
+                        <p><i class="fas fa-globe text-primary me-2"></i><a href="https://nhom8.vn" target="_blank"
+                                class="text-white-50">nhom8.vn</a></p>
                     </div>
                 </div>
             </div>
@@ -46,21 +65,15 @@
         <!-- Footer End -->
 
         <!-- Copyright Start -->
-        <div class="container-fluid copyright bg-dark py-4">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                        <span class="text-light"><a href="https://nhom8.vn" target="_blank"><i
-                                    class="fas fa-copyright text-light me-2"></i>Hỏi Dân IT</a>, All right
-                            reserved.</span>
-                    </div>
-                    <div class="col-md-6 my-auto text-center text-md-end text-white">
-                        <!--/*** This template is free as long as you keep the below author’s credit link/attribution link/backlink. ***/-->
-                        <!--/*** If you'd like to use the template without the below author’s credit link/attribution link/backlink, ***/-->
-                        <!--/*** you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". ***/-->
-                        Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a> Distributed
-                        By <a class="border-bottom" href="https://themewagon.com">ThemeWagon</a>
-                    </div>
+        <div class="container-fluid bg-secondary text-white py-3">
+            <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
+                <div class="mb-2 mb-md-0">
+                    &copy; <a class="text-white border-bottom" href="https://nhom8.vn" target="_blank">Nhóm 8</a>. All
+                    Rights Reserved.
+                </div>
+                <div>
+                    Designed by <a class="text-white border-bottom" href="https://htmlcodex.com">HTML Codex</a>,
+                    Distributed by <a class="text-white border-bottom" href="https://themewagon.com">ThemeWagon</a>
                 </div>
             </div>
         </div>

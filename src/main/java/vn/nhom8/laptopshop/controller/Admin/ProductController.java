@@ -54,6 +54,9 @@ public class ProductController {
         model.addAttribute("users1", listProducts);
         model.addAttribute("currentPage", page);
         model.addAttribute("totalPages", products.getTotalPages());
+        if (products.getTotalPages() == 0) {
+            model.addAttribute("totalPages", 1);
+        }
         return "admin/product/show";
     }
 

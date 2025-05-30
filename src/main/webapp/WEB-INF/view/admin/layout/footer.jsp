@@ -7,7 +7,6 @@
                     <div>
                         <a href="https://nhom8.vn/" target="_blank">Website</a>
                         &middot;
-                        <a href="https://www.youtube.com/@nhom8" target="_blank">Youtube channel</a>
                     </div>
                 </div>
             </div>
